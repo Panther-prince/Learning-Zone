@@ -1,0 +1,115 @@
+.navbar-brand {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 2em;
+  font-weight: bold;
+  color: #fff;
+}
+
+.custom-nav .custom-nav-item a {
+  color: white !important;
+}
+.custom-nav-item {
+  margin: 0.25em;
+}
+
+.custom-nav-item :hover {
+  background-color: aquamarine;
+  border: solid lightseagreen 1px;
+  border-radius: 10px;
+}
+.remove-vid-marg {
+  margin: 0px;
+  padding: 0px;
+}
+
+.vid-parent {
+  position: relative;
+}
+video {
+  width: 100%;
+  height: 100%;
+}
+.vid-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #225470;
+  z-index: 1;
+  opacity: 0.65;
+}
+
+.vid-content {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: #fff;
+}
+
+.center-vid-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.vid-content .btn-danger {
+  margin: 1em;
+}
+
+.my-content {
+  margin: 0.25em;
+}
+.button-banner {
+  color: white;
+  padding: 10px;
+}
+/* 
+.card-img-top{
+    height: 100px;
+    width: 100px;
+} */
+
+.stripe{
+    background-image: linear-gradient(240deg,orange,brown);
+    padding: 3rem;
+    height: 13rem;
+    margin-top: 4rem;
+    transform: rotate(10deg);
+    z-index: -5;
+}
+
+.social-hover{
+    font-size: large;
+}
+
+.social-hover:hover{
+    background-color: aquamarine;
+}
+
+@media screen and (min-width: 0px) and (max-width: 1000px) {
+  .my-content, 
+  .txt-banner,
+  .stripe {
+    display: none;
+  }
+  .vid-content {
+    top: 20%;
+    left: 50%;
+  }
+  .custom-nav .custom-nav-item {
+    padding: 10px 20px;
+    background-color: #225470;
+  }
+  .custom-nav-item:hover {
+    background-color: none;
+    border: none;
+    border-radius: none;
+  }
+}
