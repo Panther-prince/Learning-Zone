@@ -98,20 +98,6 @@
     </div>
     <!-- end text bannner-->
 
-    <div class="container mt-5">
-        <h1 class="text-center">Popular Course</h1>
-        <!-- Start Most Popular First Card Deck -->
-        <div class="card-deck mt-4">
-            <a href="#" class="btn" style="text-align: left; padding:0px; margin:0px;">
-
-            </a>
-
-        </div>
-    </div>
-
-
-
-
     <!--start cources popular-->
     <div class="container mt-5">
         <h1 class="text-center">Popular Courses</h1>
