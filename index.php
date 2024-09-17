@@ -5,80 +5,52 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iSchool</title>
+    <title>LearningZone</title>
 
-    <!-- Link CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/all.min.css">
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet" />
-
-    <!-- Custom Style -->
-    <link rel="stylesheet" href="css/style.css" />
+    <!-- Include CSS -->
+    <?php
+    include("./dbconn.php");
+    include("./Main-Includes/addcss.php");
+    ?>
 </head>
 
 <body>
 
-    <!--Start Navbar-->
-    <nav class="navbar navbar-expand-lg pl-5 fixed-top">
-        <a class="navbar-brand" href="index.php">iSchool</a>
-        <span class="navbar-text" style="color: rgb(160, 160, 160);">Learn and Implement</span>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav custom-nav">
-                <li class="nav-item custom-nav-item active">
-                    <a class="nav-link" href="#">Home </a>
-                </li>
-                <li class="nav-item custom-nav-item ">
-                    <a class="nav-link" href="#">Courses</a>
-                </li>
-                <li class="nav-item custom-nav-item ">
-                    <a class="nav-link" href="#">Payment</a>
-                </li>
-                <li class="nav-item custom-nav-item ">
-                    <a class="nav-link" href="#">MyProfile</a>
-                </li>
-                <li class="nav-item custom-nav-item ">
-                    <a class="nav-link" href="#">Login</a>
-                </li>
-                <li class="nav-item custom-nav-item ">
-                    <a class="nav-link" href="#">Logout</a>
-                </li>
-                <li class="nav-item custom-nav-item ">
-                    <a class="nav-link" href="#">Signup</a>
-                </li>
-                <li class="nav-item custom-nav-item ">
-                    <a class="nav-link" href="#">Feedback</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    <!--End Navbar-->
+    <!-- Include Navbar -->
+    <?php
+    include("./Main-Includes/navbar.php");
+
+    ?>
 
 
     <!-- start back video -->
     <div class="container-fluid remove-vid-marg">
         <div class="vid-parent">
             <video playsinline autoplay muted loop>
-                <source src="video/Oggy 1.mp4">
+                <source src="video/BackgroundVid.mp4">
             </video>
             <div class="vid-overlay"></div>
         </div>
         <div class="vid-content">
             <div class="center-vid-content">
-                <h1 class="my-content">Welcome to iSchool</h1>
-                <small class="my-content">Learn and Implement</small>
-                <a href="#" class="btn btn-danger">Get Started</a>
+                <h1 class="my-content titleStyle">Welcome to LearningZone</h1>
+                <p class="my-content">Experience a new way of learning</p>
+
+                <?php
+                if (!isset($_SESSION['is_login'])) {
+                    echo '<a href="#" class="btn btn-danger mt-3" data-toggle="modal" data-target="#stdRegiModal">Get Started</a>';
+                } else {
+                    echo '<a href="student/student_profile.php"><button class="btn mt-3 btnCol">My Profile </button> </a>';
+                }
+                ?>
+
             </div>
         </div>
     </div>
     <!-- end back video -->
 
     <!-- strat text bannner-->
-    <div class="container-fluid bg-danger txt-banner">
+    <div class="container-fluid txt-banner">
         <div class="row button-banner">
             <div class="col-sm">
                 <h5><i class="fas fa-book-open mr-3"></i> 100+ Online Cources</h5>
@@ -100,154 +72,126 @@
 
     <!--start cources popular-->
     <div class="container mt-5">
-        <h1 class="text-center">Popular Courses</h1>
-        
-        <!--card start-->
+        <h1 class="text-center titleStyle">Popular Courses</h1>
+
+
         <div class="card-deck mt-4">
-            <a href="#" class="btn" style="text-align: left; padding: 0px; margin: 0px;">
-                <div class="card">
-                    <img src="image/YellowBuddy.jpg" class="card-img-top" alt="No Img" />
-                    <div class="card-body">
-                        <h5 class="card-title">Python</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. saepe laborem</p>
-                    </div>
-                    <div class="card-footer">
-                        <p class="card-text d-inline">Price :<small><del>&#8377 200</del></small></p>
-                        <span class="font-weight-bolder">&#8377 200 </span>
-                        <a class="btn btn-primary text-white font-weight-bolder float-right" href="#">Enroll</a>
-                    </div>
-                </div>
-            </a>
-            <a href="#" class="btn" style="text-align: left; padding:0px; margin:0px;">
-                <div class="card">
-                    <img src="image/YellowBuddy.jpg" class="card-img-top" alt="No Img" />
-                    <div class="card-body">
-                        <h5 class="card-title">Python</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. saepe laborem</p>
-                    </div>
-                    <div class="card-footer">
-                        <p class="card-text d-inline">Price :<small><del>&#8377 200</del></small></p>
-                        <span class="font-weight-bolder">&#8377 200 </span>
-                        <a class="btn btn-primary text-white font-weight-bolder float-right" href="#">Enroll</a>
-                    </div>
-                </div>
-            </a>
-            <a href="#" class="btn" style="text-align: left; padding:0px; margin:0px;">
-                <div class="card">
-                    <img src="image/YellowBuddy.jpg" class="card-img-top" alt="No Img" />
-                    <div class="card-body">
-                        <h5 class="card-title">Python</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. saepe laborem</p>
-                    </div>
-                    <div class="card-footer">
-                        <p class="card-text d-inline">Price :<small><del>&#8377 200</del></small></p>
-                        <span class="font-weight-bolder">&#8377 200 </span>
-                        <a class="btn btn-primary text-white font-weight-bolder float-right" href="#">Enroll</a>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <!--card end-->
+
+            <?php
+            $sql = "SELECT * FROM course LIMIT 3";
+            $result = $con->query($sql);
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    $course_id = $row['course_id'];
+                    echo '
+                            <!--card start-->
+                            <div class="cardStyle">
+                                <div style="border-style: ridge;">
+                                <a href="coursedetails.php?course_id=' . $course_id . '">
+                                    <img src="image/courseimg/' . $row['course_img'] . ' " class="card-img-top" alt="No Img"/>
+                                    <div class="card-body" style="height: 135px; overflow: hidden;">
+                                        <p class="card-title font-weight-bold"> ' . $row['course_name'] . '</p>
+                                        <small class="card-text"> ' . $row['course_desc'] . ' </small>
+                                    </div>
+                                    <div class="card-footer">
+                                        <p class="card-text d-inline">Price :<small><del>&#8377  ' . $row['course_original_price'] . ' </del></small></p>
+                                        <span class="font-weight-bolder">&#8377 ' . $row['course_price'] . ' </span>
+                                        <a class="btn btn-primary text-white font-weight-bolder float-right" href="coursedetails.php?course_id=' . $course_id . '">Enroll</a>
+                                    </div>
+                                </a>
+                                </div>
+                            </div>
+                            <!--card end-->
+                        ';
+                }
+            }
+
+            ?>
 
 
-        <!--end cources popular-->
-        <!--start more cources -->
-        <div class="text-center m-2">
-            <a class="btn btn-danger btn-sm" href="#">View all Courses</a>
+
+            <!--start more cources -->
+            <div class="text-center m-4 w-100">
+                <a class="btn btnCol" href="./courses.php">View all Courses</a>
+            </div>
+            <!--end more cources Popular -->
+
         </div>
     </div>
-    <!--end more cources Popular -->
+    <!--end cources popular-->
+
+    <!--start cources New-->
+    <div class="container mt-5">
+        <h1 class="text-center titleStyle">New Courses</h1>
+
+        <!--card 2 start-->
+        <div class="card-deck mt-4">
+
+            <?php
+            $sql = "SELECT * FROM course ORDER BY course_id DESC LIMIT 3 ";
+            $result = $con->query($sql);
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    $course_id = $row['course_id'];
+                    echo '
+                            <!--card start-->
+                            <div class="cardStyle">
+                                <div style="border-style: ridge;">
+                                <a href="coursedetails.php?course_id=' . $course_id . '">
+                                    <img src="image/courseimg/' . $row['course_img'] . ' " class="card-img-top" alt="No Img"/>
+                                    <div class="card-body" style="height: 135px; overflow: hidden;">
+                                        <p class="card-title font-weight-bold"> ' . $row['course_name'] . '</p>
+                                        <small class="card-text"> ' . $row['course_desc'] . ' </small>
+                                    </div>
+                                    <div class="card-footer">
+                                        <p class="card-text d-inline">Price :<small><del>&#8377  ' . $row['course_original_price'] . ' </del></small></p>
+                                        <span class="font-weight-bolder">&#8377 ' . $row['course_price'] . ' </span>
+                                        <a class="btn btn-primary text-white font-weight-bolder float-right" href="coursedetails.php?course_id=' . $course_id . '">Enroll</a>
+                                    </div>
+                                </a>
+                                </div>
+                            </div>
+                            <!--card end-->
+                        ';
+                }
+            }
+
+            ?>
+
+        </div>
+        <!--card 2 end-->
+
+        <!--start more cources -->
+        <div class="text-center m-4">
+            <a class="btn btnCol" href="./courses.php">View all Courses</a>
+        </div>
+        <!--end more cources -->
+    </div>
+    <!--end New cources -->
+
 
     <!-- Start Contact Us -->
-    <div class="container mt-4" id="Contact">
-        <!--  Start Container -->
-        <h2 class="text-center mb-4">Contact Us</h2>
-        <div class="row">
-            <!-- Start Contact Us Row -->
-            <div class="col-md-8">
-                <!-- Start Contact Us 1st Column -->
-                <form action="" method="post">
-                    <input type="text" class="form-control" name="name" placeholder="Name"><br>
-                    <input type="text" class="form-control" name="subject" placeholder="Subject"><br>
-                    <input type="text" class="form-control" name="email" placeholder="Email"><br>
-                    <textarea class="form-control" name="message" placeholder="How can we help you?" style="height: 150px;"></textarea><br>
-                    <input class="btn btn-primary" type="submit" value="Send" name="submit"><br><br>
-                </form>
-            </div> <!-- End Contact Us 1st Column -->
-            <div class="col-md-4 stripe text-white text-center">
-                <!-- Start Contact Us 2nd Column -->
-                <h4> I-School</h4>
-                <p>
-                    Hello <br>
-                    Yellow <br>
-                    Phone No : 1234567890 <br>
-                    Website : www.thatisischooo
-                </p>
-            </div> <!-- End Contact Us 2nd Column -->
-        </div> <!-- End Contact Us Row -->
-        <!--  End Container -->
-    </div>
+
+    <?php
+    include("./contactus.php");
+    ?>
+
     <!-- End Contact Us -->
 
-    <!-- Start Social Media Follow -->
-    <!-- strat text bannner-->
-    <div class="container-fluid bg-danger">
-        <div class="row text-white text-center">
-            <div class="col">
-                <a class="text-white social-hover" href="#">
-                    <i class="fa-brands fa-facebook"></i> Facebook 
-                </a>
-            </div>
-            <div class="col">
-                <a class="text-white social-hover" href="#"><i class="fa-brands fa-twitter"></i> Twitter </a>
-            </div>
-            <div class="col">
-                <a class="text-white social-hover" href="#"><i class="fa-brands fa-whatsapp"></i> Whatsapp</a>
-            </div>
-            <div class="col">
-                <a class="text-white social-hover" href="#"><i class="fa-brands fa-instagram"></i> Instagram </a>
-            </div>
-        </div>
+    <!-- Include Footer -->
+
+    <?php
+    include("./Main-Includes/footer.php")
+    ?>
     </div>
-    <!-- end text bannner-->
-
-    <!-- End Social Media Follow -->
 
 
-    <!--start footer -->
-    <div class="container-fluid p-4" style="background-color: #E9ECEF">
-        <div class="container" style="background-color: #E9ECEF">
-            <div class="row text-center">
-                <div class="col-sm">
-                    <h5>About Us</h5>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam dignissimos vero, aliquam molestias, repellat cupiditate consequuntur doloribus, ullam error doloremque sunt perferendis! Labore distinctio ipsum cum, unde est dolore aut.</p>
-                </div>
-                <div class="col-sm">
-                    <h5>Categories</h5>
-                    <a class="text-dark" href="">Web Development</a></br>
-                    <a class="text-dark" href="">Web Designing</a></br>
-                    <a class="text-dark" href="">Android App Dev</a></br>
-                    <a class="text-dark" href="">ios Development</a></br>
-                    <a class="text-dark" href="">Data Analysis</a></br>
-                </div>
-                <div class="col-sm">
-                    <h5>Contact Us</h5>
-                    <p>ischool Pvt Ltd</br> Near Police Camp II</br> Bokaro, Gujrat </br> Ph. 0000000000</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <footer class="container-fluid bg-dark text-center p-2">
-        <small class="text-white">Copyright &copy; 2022 || Designed by Pranay, Vasudev & Prince || Admin Login</small>
-    </footer>
-    <!--end footer -->
+    <!-- Include Models -->
+    <?php
+    include("./modals.php");
+    ?>
 
-    <!-- Link JQuery and Bootstrap Javascripts -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/all.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+
 </body>
 
 </html>
